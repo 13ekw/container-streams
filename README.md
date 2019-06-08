@@ -24,7 +24,7 @@ Then I wrote a Kafka Streams App ("ShippingStreams") which reads from the "strea
 I also wrote two consumers "ConsumerWarning" and "ConsumerDanger" which consume only warning or danger key-value pairs.
 The output will be in the following format:
   ShipA - Problem {
-    container: Container1
-		temperature: 89 C
-		time/date: 
-		message: 
+	container: Container1
+	temperature: 89 C
+	time/date: 2019.06.08.13.22.38
+	message: WARNING temperature approaching danger level
