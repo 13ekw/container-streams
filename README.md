@@ -17,8 +17,7 @@ Contains all the work I did for my work experience week at IBM
   - ConsumerDanger (Consumes messages from danger topic)
   
 ## Explanation
-Ther was a demo to show Kafka's capabilities which could be shown to tech seller and customers to explain and simplify the product. The demo involves monitoring various properties of a container on a container ship to be able to flag up any issues. Initally we wanted to simplify it to just looking at temperatures to make warning and danger messages.
+This was my first time coding in java and using the Eclipse IDE. It was a week of many firsts but I had so much help from the amazinf Kafka team especailly Jordan, Kate and Dale.
+There was a demo to show Kafka's capabilities which could be shown to tech seller and customers to explain and simplify the product. The demo involves monitoring various properties of a container on a container ship to be able to flag up any issues. Initally we wanted to simplify it to just looking at temperatures to make warning and danger messages.
 Rather than trying to incorperate it into the demo straight off I wrote my own producer which produces randomly generated temperatures to containers and ships. This information was sent to a topic called "streams-shipping-input". 
-Then my Kafka Streams App ("ShippingStreams") which reads from the "streams-shipping-input" topic to start transformations
-
-tbc
+Then my Kafka Streams App ("ShippingStreams") which reads from the "streams-shipping-input" topic to start transformations+
