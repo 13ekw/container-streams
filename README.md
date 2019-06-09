@@ -16,6 +16,13 @@ Contains all the work I did for my work experience week at IBM
   - ConsumerWarning (Consumes messages from warning topic)
   - ConsumerDanger (Consumes messages from danger topic)
   
+To run the whole shipping package open in command line:
+1. zookeeper 
+2. kafka
+3. ShippingStreams
+4. consumers
+5. producers
+  
 ## Explanation of Shipping Package
 This was my first time coding in java and using the Eclipse IDE. It was a week of many firsts but I had so much help from the amazing Kafka team especailly Jordan, Kate and Dale. As well as lots of coding I thorougly enjoyed being shown around IBM Hursley including it's amazing grounds and mainframe room.
 
