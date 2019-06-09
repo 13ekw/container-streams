@@ -33,4 +33,4 @@ The output will be in the following format:
 
 >> message: WARNING temperature approaching danger level
 
->> }
+> }
