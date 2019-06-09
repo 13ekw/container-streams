@@ -23,9 +23,14 @@ Rather than trying to incorperate it into the demo straight off I wrote my own p
 Then I wrote a Kafka Streams App ("ShippingStreams") which reads from the "streams-shipping-input" topic and transforms the json data to set the key as the shipID and value as the temperature, container ID, timestamp and warning message dependent on weather the temperaure is at a warning level or dangerous level. These key-value pairs are then written to the topic called "streams-shipping-warning-output" if temperatures are between 75-90 degrees or to "streams-shipping-danger-output" if temperatures are above 90 degrees. 
 I also wrote two consumers "ConsumerWarning" and "ConsumerDanger" which consume only warning or danger key-value pairs from the relevant topic.
 The output will be in the following format:
-markup : > ShipA - Problem {
+> ShipA - Problem {
+
 >> container: Container1
+
 >> temperature: 89 C
+
 >> time/date: 2019.06.08.13.22.38
+
 >> message: WARNING temperature approaching danger level
+
 >> }
