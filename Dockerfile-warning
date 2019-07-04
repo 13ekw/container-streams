@@ -1,0 +1,5 @@
+FROM ibmjava:8-jre
+WORKDIR /home/app
+COPY target/streams.examples-*-jar-with-dependencies.jar ./
+COPY runWarnings.sh ./
+CMD ./runWarnings.sh

@@ -25,7 +25,7 @@ public class ShippingStreams {
 	public static void main(String[] args) throws Exception {
         Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, "shippingstream");
-        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka1:9092");
 	
         final StreamsBuilder builder = new StreamsBuilder();
         
@@ -51,7 +51,7 @@ public class ShippingStreams {
         
         final Serde<ProblemMessage> problemSerde  = Serdes.serdeFrom(problemSerializer, problemDeserializer);
         
-        KStream<String, ContainerMessage> source = builder.stream("streams-shipping-input", Consumed.with(Serdes.String(), containerSerde));
+        KStream<String, ContainerMessage> source = builder.stream("bluewaterContainer", Consumed.with(Serdes.String(), containerSerde));
         
         @SuppressWarnings("unchecked")
 		KStream<String, ContainerMessage>[] branches = source
@@ -59,8 +59,8 @@ public class ShippingStreams {
         		(key, container) -> container.getShipID()
         	)
         	.branch(
-        		(key, container) -> container.getTempC() > 75 && container.getTempC() < 90,
-        		(key, container) -> container.getTempC() > 90 
+        		(key, container) -> container.getTempC() > 75 && container.getTempC() <= 150,
+        		(key, container) -> container.getTempC() > 150 
         );
         
         branches[0].mapValues(container -> new ProblemMessage(container.getContainerId(), container.getTempC(), container.getTimestampMillis(), "WARNING temperature approaching danger level")) 
