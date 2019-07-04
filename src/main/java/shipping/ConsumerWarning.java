@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ConsumerWarning {
 	public static void main(String[] args) {
 		Properties consumerProps = new Properties();
-		consumerProps.put("bootstrap.servers", "localhost:9092");
+		consumerProps.put("bootstrap.servers", "kafka1:9092");
 		consumerProps.put("group.id", "mygroup");
 		consumerProps.put("enable.auto.commit", "true");
 		consumerProps.put("auto.commit.interval.ms", "1000");

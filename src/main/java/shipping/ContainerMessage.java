@@ -1,5 +1,7 @@
 package shipping;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ContainerMessage {
 	
 	private String containerId;
@@ -9,13 +11,16 @@ public class ContainerMessage {
 	private int contentType;
 	private double humidity;
 	private double co2;
-	private int Tproduce;
+	@JsonProperty("Tproduce")
+	private long Tproduce;
 	private String shipID;
 	private String timestampMillis;
 	
 	public ContainerMessage() {}
 	
-	public ContainerMessage(String containerId, int tempC, int amp, double cumulativePowerConsumption, int contentType, double humidity, double c02, int Tproduce, String shipID, String timestampMillis) {
+// {"containerId":"c_0","tempC":41,"amp":21,"cumulativePowerConsumption":0.0,"contentType":0,"humidity":0.0,"co2":0.0,"Tproduce":0,"shipID":"JimminyCricket","timestampMillis":1561986397873}
+
+	public ContainerMessage(String containerId, int tempC, int amp, double cumulativePowerConsumption, int contentType, double humidity, double c02, long Tproduce, String shipID, String timestampMillis) {
 		this.containerId = containerId;
 		this.tempC = tempC;
 		this.amp = amp;
@@ -84,12 +89,12 @@ public class ContainerMessage {
 		this.co2 = co2;
 	}
 	
-	public int getTproduce() {
+	public long getTproduce() {
 		return Tproduce;
 	}
 
-	public void setTproduce(int tproduce) {
-		Tproduce = tproduce;
+	public void setTproduce(int Tproduce) {
+		this.Tproduce = Tproduce;
 	}
 
 	public String getShipID() {
